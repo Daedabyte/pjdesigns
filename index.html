@@ -287,6 +287,95 @@
         transform: scale(1.05);
       }
 
+      /* Brands Carousel Section */
+      .brands {
+        background: var(--white);
+        padding: 5rem 2rem;
+      }
+
+      .brands-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+      }
+
+      .carousel-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .carousel-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+        position: relative;
+      }
+
+      .carousel-slide {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        min-height: 200px;
+      }
+
+      .carousel-slide.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .brand-logo {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-align: center;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+      }
+
+      .brand-featured {
+        font-size: 4rem;
+        color: var(--accent-color);
+      }
+
+      .brand-tagline {
+        font-size: 1rem;
+        color: var(--text-light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 2rem;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .dot.active {
+        background: var(--accent-color);
+        transform: scale(1.2);
+      }
+
+      .dot:hover {
+        background: var(--primary-color);
+      }
+
       /* Services Section */
       .services {
         background: var(--bg-light);
@@ -654,6 +743,52 @@
       </div>
     </section>
 
+    <!-- Brands Carousel Section -->
+    <section class="brands" id="brands">
+      <h2 class="brands-title">Trusted By Leading Brands</h2>
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-slide active">
+            <div class="brand-logo brand-featured">HunterDouglas</div>
+            <div class="brand-tagline">Featured Partner</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="brand-logo">Schumacher</div>
+            <div class="brand-tagline">Luxury Fabrics & Wallpaper</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="brand-logo">Kravet</div>
+            <div class="brand-tagline">Collections</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="brand-logo">Lee Jofa</div>
+            <div class="brand-tagline">Premium Fabrics</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="brand-logo">Scalamandré</div>
+            <div class="brand-tagline">Historic Luxury</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="brand-logo">Brunschwig & Fils</div>
+            <div class="brand-tagline">Fine Fabrics & Wallpaper</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="brand-logo">Visual Comfort</div>
+            <div class="brand-tagline">Luxury Lighting</div>
+          </div>
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+          <span class="dot" data-slide="4"></span>
+          <span class="dot" data-slide="5"></span>
+          <span class="dot" data-slide="6"></span>
+        </div>
+      </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
       <h2 class="section-title">Our Services</h2>
@@ -890,6 +1025,54 @@
           }
         });
       });
+
+      // Brands Carousel
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".carousel-slide");
+      const dots = document.querySelectorAll(".dot");
+      const totalSlides = slides.length;
+      let carouselInterval;
+
+      function showSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach((slide) => slide.classList.remove("active"));
+        dots.forEach((dot) => dot.classList.remove("active"));
+
+        // Add active class to current slide and dot
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
+
+      function startCarousel() {
+        carouselInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+      }
+
+      function stopCarousel() {
+        clearInterval(carouselInterval);
+      }
+
+      // Dot click functionality
+      dots.forEach((dot) => {
+        dot.addEventListener("click", function () {
+          stopCarousel();
+          currentSlide = parseInt(this.getAttribute("data-slide"));
+          showSlide(currentSlide);
+          startCarousel(); // Restart auto-rotation after manual selection
+        });
+      });
+
+      // Start the carousel on page load
+      startCarousel();
+
+      // Pause carousel on hover
+      const carouselWrapper = document.querySelector(".carousel-wrapper");
+      carouselWrapper.addEventListener("mouseenter", stopCarousel);
+      carouselWrapper.addEventListener("mouseleave", startCarousel);
     </script>
   </body>
 </html>
