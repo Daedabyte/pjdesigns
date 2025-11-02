@@ -565,12 +565,12 @@
 
         .gallery-image {
           max-width: 100%;
-          height: 400px;
+          height: 400px !important;
         }
 
         .gallery-image img {
           width: 100%;
-          height: 400px;
+          height: 400px !important;
           object-fit: cover;
         }
 
@@ -578,6 +578,13 @@
         .gallery-image:nth-child(2),
         .gallery-image:nth-child(3) {
           margin-top: 0;
+          height: 400px !important;
+        }
+
+        .gallery-image:nth-child(1) img,
+        .gallery-image:nth-child(2) img,
+        .gallery-image:nth-child(3) img {
+          height: 400px !important;
         }
 
         .contact-content {
