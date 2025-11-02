@@ -331,17 +331,40 @@
       }
 
       .brand-logo {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        text-align: center;
-        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 1rem;
+        width: 100%;
+        max-width: 500px;
       }
 
-      .brand-featured {
-        font-size: 4rem;
-        color: var(--accent-color);
+      .brand-logo img {
+        max-width: 100%;
+        height: 120px;
+        object-fit: contain;
+        filter: grayscale(0%);
+        transition: var(--transition);
+      }
+
+      .brand-logo img:hover {
+        filter: grayscale(0%) brightness(1.1);
+      }
+
+      .brand-placeholder {
+        width: 100%;
+        max-width: 400px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-light);
+        border: 2px dashed var(--primary-color);
+        border-radius: 10px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        letter-spacing: 1px;
       }
 
       .brand-tagline {
@@ -687,6 +710,20 @@
         .section-title {
           font-size: 2rem;
         }
+
+        .brand-logo img {
+          height: 80px;
+        }
+
+        .brand-placeholder {
+          max-width: 300px;
+          height: 80px;
+          font-size: 1.4rem;
+        }
+
+        .brands-title {
+          font-size: 2rem;
+        }
       }
     </style>
   </head>
@@ -725,31 +762,45 @@
       <div class="carousel-container">
         <div class="carousel-wrapper">
           <div class="carousel-slide active">
-            <div class="brand-logo brand-featured">HunterDouglas</div>
+            <div class="brand-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hunter_Douglas_Logo.svg/2560px-Hunter_Douglas_Logo.svg.png" alt="Hunter Douglas">
+            </div>
             <div class="brand-tagline">Featured Partner</div>
           </div>
           <div class="carousel-slide">
-            <div class="brand-logo">Schumacher</div>
+            <div class="brand-logo">
+              <div class="brand-placeholder">Schumacher</div>
+            </div>
             <div class="brand-tagline">Luxury Fabrics & Wallpaper</div>
           </div>
           <div class="carousel-slide">
-            <div class="brand-logo">Kravet</div>
+            <div class="brand-logo">
+              <div class="brand-placeholder">Kravet</div>
+            </div>
             <div class="brand-tagline">Collections</div>
           </div>
           <div class="carousel-slide">
-            <div class="brand-logo">Lee Jofa</div>
+            <div class="brand-logo">
+              <div class="brand-placeholder">Lee Jofa</div>
+            </div>
             <div class="brand-tagline">Premium Fabrics</div>
           </div>
           <div class="carousel-slide">
-            <div class="brand-logo">Scalamandré</div>
+            <div class="brand-logo">
+              <div class="brand-placeholder">Scalamandré</div>
+            </div>
             <div class="brand-tagline">Historic Luxury</div>
           </div>
           <div class="carousel-slide">
-            <div class="brand-logo">Brunschwig & Fils</div>
+            <div class="brand-logo">
+              <div class="brand-placeholder">Brunschwig & Fils</div>
+            </div>
             <div class="brand-tagline">Fine Fabrics & Wallpaper</div>
           </div>
           <div class="carousel-slide">
-            <div class="brand-logo">Visual Comfort</div>
+            <div class="brand-logo">
+              <img src="https://www.designleadershipnetwork.org/wp-content/uploads/2023/01/VCC_Logo_Horizontal_Black_FINAL-1.png" alt="Visual Comfort">
+            </div>
             <div class="brand-tagline">Luxury Lighting</div>
           </div>
         </div>
