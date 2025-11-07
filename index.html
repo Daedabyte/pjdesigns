@@ -190,7 +190,7 @@
       .cta-button {
         display: inline-block;
         padding: 1rem 2.5rem;
-        background: var(--accent-color);
+        background: var(--primary-color);
         color: var(--white);
         text-decoration: none;
         border-radius: 50px;
@@ -221,17 +221,6 @@
         padding-bottom: 1rem;
       }
 
-      .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
-        background: var(--accent-color);
-      }
-
       /* Image Gallery Section */
       .image-gallery {
         display: flex;
@@ -249,7 +238,7 @@
         height: 600px;
         overflow: hidden;
         border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 0.8s ease, transform 0.8s ease;
@@ -434,13 +423,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
         z-index: 1;
         transition: var(--transition);
-      }
-
-      .service-card:hover::before {
-        background: rgba(0, 0, 0, 0.65);
       }
 
       /* Cards 1, 4, 5: solid background with foreground image */
@@ -458,19 +443,19 @@
 
       /* Cards 2, 3, 6: background image */
       .service-card:nth-child(2) {
-        background-image: url('images/blinds.jpg');
+        background-image: url("images/blinds.jpg");
         background-size: cover;
         background-position: center;
       }
 
       .service-card:nth-child(3) {
-        background-image: url('images/furniture.jpg');
+        background-image: url("images/furniture.jpg");
         background-size: cover;
         background-position: center;
       }
 
       .service-card:nth-child(6) {
-        background-image: url('images/paint-painting.jpg');
+        background-image: url("images/paint-painting.jpg");
         background-size: cover;
         background-position: center;
       }
@@ -823,7 +808,7 @@
     <!-- Navigation -->
     <nav id="navbar">
       <div class="nav-container">
-        <a href="#" class="logo">PJ<span>Designs</span></a>
+        <a href="#" class="logo">P J <span>Designs</span></a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -844,6 +829,7 @@
       <div class="hero-content">
         <h1>Creative Design Solutions</h1>
         <p>Transforming Ideas Into Stunning Visual Experiences</p>
+        <p>Since 2004</p>
         <a href="#contact" class="cta-button">Let's Work Together</a>
       </div>
     </section>
@@ -959,10 +945,16 @@
       <div class="services-grid">
         <div class="service-card fade-in">
           <div class="service-content">
-            <img src="images/upolstry.jpg" alt="Upholstery" class="service-image">
+            <img
+              src="images/upolstry.jpg"
+              alt="Upholstery"
+              class="service-image"
+            />
             <h3>Upholstery, Fabrics and Trims</h3>
             <p>
-              Custom upholstery services and premium fabric selections from leading brands including Michael Thomas, Miles Talbot, and Schumacher.
+              Custom upholstery services and premium fabric selections from
+              leading brands including Michael Thomas, Miles Talbot, and
+              Schumacher.
             </p>
           </div>
         </div>
@@ -970,7 +962,8 @@
           <div class="service-content">
             <h3>Window Treatments</h3>
             <p>
-              Authorized Hunter Douglas dealer offering expert installation of blinds, shades, shutters, and custom drapery solutions.
+              Authorized Hunter Douglas dealer offering expert installation of
+              blinds, shades, shutters, and custom drapery solutions.
             </p>
           </div>
         </div>
@@ -978,25 +971,39 @@
           <div class="service-content">
             <h3>Furniture and Furnishings</h3>
             <p>
-              Custom furniture fabrication and selection from premium manufacturers including Willem Smith, Michael Thomas, Miles Talbot, and Schumacher.
+              Custom furniture fabrication and selection from premium
+              manufacturers including Willem Smith, Michael Thomas, Miles
+              Talbot, and Schumacher.
             </p>
           </div>
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <img src="images/accesories.jpg" alt="Accessories" class="service-image">
+            <img
+              src="images/accesories.jpg"
+              alt="Accessories"
+              class="service-image"
+            />
             <h3>Accessories & Rugs</h3>
             <p>
-              Distinctive home accessories including Carver's Guild mirrors, decorative accents, and luxury rugs from Stark and other premium brands.
+              Distinctive home accessories including Carver's Guild mirrors,
+              decorative accents, and luxury rugs from Stark and other premium
+              brands.
             </p>
           </div>
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <img src="images/ligihting-image.png" alt="Lighting" class="service-image">
+            <img
+              src="images/ligihting-image.png"
+              alt="Lighting"
+              class="service-image"
+            />
             <h3>Lighting</h3>
             <p>
-              Designer lighting solutions from industry leaders including Currey & Company, Visual Comfort, and Vaughan to illuminate your space beautifully.
+              Designer lighting solutions from industry leaders including Currey
+              & Company, Visual Comfort, and Vaughan to illuminate your space
+              beautifully.
             </p>
           </div>
         </div>
@@ -1004,7 +1011,9 @@
           <div class="service-content">
             <h3>Paint & Painting</h3>
             <p>
-              Professional painting services and color consultation featuring premium paints from Benjamin Moore, Farrow & Ball, and Sherwin Williams.
+              Professional painting services and color consultation featuring
+              premium paints from Benjamin Moore, Farrow & Ball, and Sherwin
+              Williams.
             </p>
           </div>
         </div>
