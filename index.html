@@ -443,32 +443,32 @@
         background: rgba(0, 0, 0, 0.65);
       }
 
-      .service-card:nth-child(1) {
-        background-image: url('images/upolstry.jpg');
-        background-size: cover;
-        background-position: center;
+      /* Odd cards: solid background with foreground image */
+      .service-card:nth-child(odd) {
+        background: var(--primary-color);
       }
 
+      .service-card:nth-child(1) {
+        background: var(--primary-color);
+      }
+
+      .service-card:nth-child(3) {
+        background: var(--accent-color);
+      }
+
+      .service-card:nth-child(5) {
+        background: var(--primary-color);
+      }
+
+      /* Even cards: background image */
       .service-card:nth-child(2) {
         background-image: url('images/blinds.jpg');
         background-size: cover;
         background-position: center;
       }
 
-      .service-card:nth-child(3) {
-        background-image: url('images/furniture.jpg');
-        background-size: cover;
-        background-position: center;
-      }
-
       .service-card:nth-child(4) {
         background-image: url('images/accesories.jpg');
-        background-size: cover;
-        background-position: center;
-      }
-
-      .service-card:nth-child(5) {
-        background-image: url('images/ligihting-image.png');
         background-size: cover;
         background-position: center;
       }
@@ -488,10 +488,13 @@
         max-width: 500px;
       }
 
-      .service-icon {
-        font-size: 4rem;
+      .service-image {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
         margin-bottom: 1.5rem;
-        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
       .service-card h3 {
@@ -812,6 +815,11 @@
         .service-card p {
           font-size: 1rem;
         }
+
+        .service-image {
+          width: 180px;
+          height: 180px;
+        }
       }
     </style>
   </head>
@@ -955,7 +963,7 @@
       <div class="services-grid">
         <div class="service-card fade-in">
           <div class="service-content">
-            <div class="service-icon">🪑</div>
+            <img src="images/upolstry.jpg" alt="Upholstery" class="service-image">
             <h3>Upholstery, Fabrics and Trims</h3>
             <p>
               Custom upholstery services and premium fabric selections from leading brands including Michael Thomas, Miles Talbot, and Schumacher.
@@ -964,7 +972,6 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <div class="service-icon">🪟</div>
             <h3>Window Treatments</h3>
             <p>
               Authorized Hunter Douglas dealer offering expert installation of blinds, shades, shutters, and custom drapery solutions.
@@ -973,7 +980,7 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <div class="service-icon">🛋️</div>
+            <img src="images/furniture.jpg" alt="Furniture" class="service-image">
             <h3>Furniture and Furnishings</h3>
             <p>
               Custom furniture fabrication and selection from premium manufacturers including Willem Smith, Michael Thomas, Miles Talbot, and Schumacher.
@@ -982,7 +989,6 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <div class="service-icon">🖼️</div>
             <h3>Accessories & Rugs</h3>
             <p>
               Distinctive home accessories including Carver's Guild mirrors, decorative accents, and luxury rugs from Stark and other premium brands.
@@ -991,7 +997,7 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <div class="service-icon">💡</div>
+            <img src="images/ligihting-image.png" alt="Lighting" class="service-image">
             <h3>Lighting</h3>
             <p>
               Designer lighting solutions from industry leaders including Currey & Company, Visual Comfort, and Vaughan to illuminate your space beautifully.
@@ -1000,7 +1006,6 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <div class="service-icon">🎨</div>
             <h3>Paint & Painting</h3>
             <p>
               Professional painting services and color consultation featuring premium paints from Benjamin Moore, Farrow & Ball, and Sherwin Williams.
