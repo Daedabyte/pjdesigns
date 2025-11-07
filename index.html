@@ -401,43 +401,99 @@
 
       /* Services Section */
       .services {
-        background: var(--bg-light);
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .services .section-title {
+        padding: 3rem 2rem 2rem 2rem;
+        margin-bottom: 0;
       }
 
       .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        width: 100%;
       }
 
       .service-card {
-        background: var(--white);
-        padding: 2rem;
-        border-radius: 10px;
-        text-align: center;
+        position: relative;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
         transition: var(--transition);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
-      .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        transition: var(--transition);
+      }
+
+      .service-card:hover::before {
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .service-card:nth-child(1) {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .service-card:nth-child(2) {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .service-card:nth-child(3) {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .service-card:nth-child(4) {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .service-card:nth-child(5) {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .service-card:nth-child(6) {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .service-content {
+        position: relative;
+        z-index: 2;
+        color: var(--white);
+        text-align: center;
+        padding: 3rem;
+        max-width: 500px;
       }
 
       .service-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        color: var(--accent-color);
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
       }
 
       .service-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
 
       .service-card p {
-        color: var(--text-light);
+        color: var(--white);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
 
       /* Portfolio Section */
@@ -724,6 +780,26 @@
         .brands-title {
           font-size: 2rem;
         }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          min-height: 350px;
+        }
+
+        .service-content {
+          padding: 2rem;
+        }
+
+        .service-card h3 {
+          font-size: 1.6rem;
+        }
+
+        .service-card p {
+          font-size: 1rem;
+        }
       }
     </style>
   </head>
@@ -866,46 +942,58 @@
       <h2 class="section-title">Our Services</h2>
       <div class="services-grid">
         <div class="service-card fade-in">
-          <div class="service-icon">🪑</div>
-          <h3>Upholstery, Fabrics and Trims</h3>
-          <p>
-            Custom upholstery services and premium fabric selections from leading brands including Michael Thomas, Miles Talbot, and Schumacher.
-          </p>
+          <div class="service-content">
+            <div class="service-icon">🪑</div>
+            <h3>Upholstery, Fabrics and Trims</h3>
+            <p>
+              Custom upholstery services and premium fabric selections from leading brands including Michael Thomas, Miles Talbot, and Schumacher.
+            </p>
+          </div>
         </div>
         <div class="service-card fade-in">
-          <div class="service-icon">🪟</div>
-          <h3>Window Treatments</h3>
-          <p>
-            Authorized Hunter Douglas dealer offering expert installation of blinds, shades, shutters, and custom drapery solutions.
-          </p>
+          <div class="service-content">
+            <div class="service-icon">🪟</div>
+            <h3>Window Treatments</h3>
+            <p>
+              Authorized Hunter Douglas dealer offering expert installation of blinds, shades, shutters, and custom drapery solutions.
+            </p>
+          </div>
         </div>
         <div class="service-card fade-in">
-          <div class="service-icon">🛋️</div>
-          <h3>Furniture and Furnishings</h3>
-          <p>
-            Custom furniture fabrication and selection from premium manufacturers including Willem Smith, Michael Thomas, Miles Talbot, and Schumacher.
-          </p>
+          <div class="service-content">
+            <div class="service-icon">🛋️</div>
+            <h3>Furniture and Furnishings</h3>
+            <p>
+              Custom furniture fabrication and selection from premium manufacturers including Willem Smith, Michael Thomas, Miles Talbot, and Schumacher.
+            </p>
+          </div>
         </div>
         <div class="service-card fade-in">
-          <div class="service-icon">🖼️</div>
-          <h3>Accessories & Rugs</h3>
-          <p>
-            Distinctive home accessories including Carver's Guild mirrors, decorative accents, and luxury rugs from Stark and other premium brands.
-          </p>
+          <div class="service-content">
+            <div class="service-icon">🖼️</div>
+            <h3>Accessories & Rugs</h3>
+            <p>
+              Distinctive home accessories including Carver's Guild mirrors, decorative accents, and luxury rugs from Stark and other premium brands.
+            </p>
+          </div>
         </div>
         <div class="service-card fade-in">
-          <div class="service-icon">💡</div>
-          <h3>Lighting</h3>
-          <p>
-            Designer lighting solutions from industry leaders including Currey & Company, Visual Comfort, and Vaughan to illuminate your space beautifully.
-          </p>
+          <div class="service-content">
+            <div class="service-icon">💡</div>
+            <h3>Lighting</h3>
+            <p>
+              Designer lighting solutions from industry leaders including Currey & Company, Visual Comfort, and Vaughan to illuminate your space beautifully.
+            </p>
+          </div>
         </div>
         <div class="service-card fade-in">
-          <div class="service-icon">🎨</div>
-          <h3>Paint & Painting</h3>
-          <p>
-            Professional painting services and color consultation featuring premium paints from Benjamin Moore, Farrow & Ball, and Sherwin Williams.
-          </p>
+          <div class="service-content">
+            <div class="service-icon">🎨</div>
+            <h3>Paint & Painting</h3>
+            <p>
+              Professional painting services and color consultation featuring premium paints from Benjamin Moore, Farrow & Ball, and Sherwin Williams.
+            </p>
+          </div>
         </div>
       </div>
     </section>
