@@ -443,16 +443,12 @@
         background: rgba(0, 0, 0, 0.65);
       }
 
-      /* Odd cards: solid background with foreground image */
-      .service-card:nth-child(odd) {
-        background: var(--primary-color);
-      }
-
+      /* Cards 1, 4, 5: solid background with foreground image */
       .service-card:nth-child(1) {
         background: var(--primary-color);
       }
 
-      .service-card:nth-child(3) {
+      .service-card:nth-child(4) {
         background: var(--accent-color);
       }
 
@@ -460,15 +456,15 @@
         background: var(--primary-color);
       }
 
-      /* Even cards: background image */
+      /* Cards 2, 3, 6: background image */
       .service-card:nth-child(2) {
         background-image: url('images/blinds.jpg');
         background-size: cover;
         background-position: center;
       }
 
-      .service-card:nth-child(4) {
-        background-image: url('images/accesories.jpg');
+      .service-card:nth-child(3) {
+        background-image: url('images/furniture.jpg');
         background-size: cover;
         background-position: center;
       }
@@ -980,7 +976,6 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
-            <img src="images/furniture.jpg" alt="Furniture" class="service-image">
             <h3>Furniture and Furnishings</h3>
             <p>
               Custom furniture fabrication and selection from premium manufacturers including Willem Smith, Michael Thomas, Miles Talbot, and Schumacher.
@@ -989,6 +984,7 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-content">
+            <img src="images/accesories.jpg" alt="Accessories" class="service-image">
             <h3>Accessories & Rugs</h3>
             <p>
               Distinctive home accessories including Carver's Guild mirrors, decorative accents, and luxury rugs from Stark and other premium brands.
