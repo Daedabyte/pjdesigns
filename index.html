@@ -223,25 +223,23 @@
 
       /* Image Gallery Section */
       .image-gallery {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
         padding: 2rem;
         max-width: 1400px;
         margin: 0 auto;
       }
 
       .gallery-image {
-        flex: 1;
-        max-width: 600px;
-        height: 600px;
         overflow: hidden;
         border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 0.8s ease, transform 0.8s ease;
+        cursor: pointer;
+        position: relative;
       }
 
       .gallery-image.visible {
@@ -250,18 +248,29 @@
       }
 
       .gallery-image:nth-child(1) {
-        margin-top: -60px;
+        grid-row: span 2;
         transition-delay: 0.1s;
       }
 
       .gallery-image:nth-child(2) {
-        margin-top: 0;
-        transition-delay: 0.3s;
+        transition-delay: 0.2s;
       }
 
       .gallery-image:nth-child(3) {
-        margin-top: -60px;
+        transition-delay: 0.3s;
+      }
+
+      .gallery-image:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .gallery-image:nth-child(5) {
+        grid-row: span 2;
         transition-delay: 0.5s;
+      }
+
+      .gallery-image:nth-child(6) {
+        transition-delay: 0.6s;
       }
 
       .gallery-image img {
@@ -273,7 +282,58 @@
       }
 
       .gallery-image:hover img {
-        transform: scale(1.05);
+        transform: scale(1.1);
+      }
+
+      /* Lightbox Modal */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        animation: zoomIn 0.3s ease;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: var(--white);
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .lightbox-close:hover {
+        color: var(--accent-color);
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
 
       /* Brands Carousel Section */
@@ -723,32 +783,23 @@
         }
 
         .image-gallery {
-          flex-direction: column;
-          gap: 1.5rem;
+          grid-template-columns: 1fr;
+          gap: 1rem;
         }
 
         .gallery-image {
-          max-width: 100%;
-          height: 400px !important;
-        }
-
-        .gallery-image img {
-          width: 100%;
-          height: 400px !important;
-          object-fit: cover;
+          height: 300px;
         }
 
         .gallery-image:nth-child(1),
-        .gallery-image:nth-child(2),
-        .gallery-image:nth-child(3) {
-          margin-top: 0;
-          height: 400px !important;
+        .gallery-image:nth-child(5) {
+          grid-row: span 1;
         }
 
-        .gallery-image:nth-child(1) img,
-        .gallery-image:nth-child(2) img,
-        .gallery-image:nth-child(3) img {
-          height: 400px !important;
+        .lightbox-close {
+          top: 10px;
+          right: 15px;
+          font-size: 30px;
         }
 
         .contact-content {
@@ -917,11 +968,18 @@
 
     <!-- Image Gallery Section -->
     <section id="about">
+      <h2 class="section-title">Our Portfolio</h2>
       <div class="image-gallery">
         <div class="gallery-image">
           <img
             src="https://pjdesignsva.com/wp-content/uploads/2020/09/bathroom1.jpg"
             alt="PJ Designs Interior Work"
+          />
+        </div>
+        <div class="gallery-image">
+          <img
+            src="images/upolstry.jpg"
+            alt="Custom Upholstery"
           />
         </div>
         <div class="gallery-image">
@@ -932,12 +990,30 @@
         </div>
         <div class="gallery-image">
           <img
+            src="images/furniture.jpg"
+            alt="Furniture Design"
+          />
+        </div>
+        <div class="gallery-image">
+          <img
             src="https://pjdesignsva.com/wp-content/uploads/2014/03/pjdesigns002-1024x682.jpg"
             alt="PJ Designs Portfolio"
           />
         </div>
+        <div class="gallery-image">
+          <img
+            src="images/DSC02356-scaled.jpg"
+            alt="Interior Design"
+          />
+        </div>
       </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" alt="Gallery Image">
+    </div>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -1249,6 +1325,44 @@
       const carouselWrapper = document.querySelector(".carousel-wrapper");
       carouselWrapper.addEventListener("mouseenter", stopCarousel);
       carouselWrapper.addEventListener("mouseleave", startCarousel);
+
+      // Lightbox functionality
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxClose = document.querySelector(".lightbox-close");
+      const galleryImages = document.querySelectorAll(".gallery-image img");
+
+      // Open lightbox when clicking on gallery images
+      galleryImages.forEach((img) => {
+        img.addEventListener("click", function () {
+          lightbox.classList.add("active");
+          lightboxImg.src = this.src;
+          lightboxImg.alt = this.alt;
+          document.body.style.overflow = "hidden"; // Prevent scrolling
+        });
+      });
+
+      // Close lightbox when clicking the close button
+      lightboxClose.addEventListener("click", function () {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "auto"; // Restore scrolling
+      });
+
+      // Close lightbox when clicking outside the image
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "auto"; // Restore scrolling
+        }
+      });
+
+      // Close lightbox with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && lightbox.classList.contains("active")) {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "auto"; // Restore scrolling
+        }
+      });
     </script>
   </body>
 </html>
