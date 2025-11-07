@@ -221,7 +221,62 @@
         padding-bottom: 1rem;
       }
 
-      /* Image Gallery Section */
+      /* About Gallery Section (3 images under brands) */
+      .about-gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .about-gallery-image {
+        flex: 1;
+        max-width: 600px;
+        height: 600px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .about-gallery-image.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .about-gallery-image:nth-child(1) {
+        margin-top: -60px;
+        transition-delay: 0.1s;
+      }
+
+      .about-gallery-image:nth-child(2) {
+        margin-top: 0;
+        transition-delay: 0.3s;
+      }
+
+      .about-gallery-image:nth-child(3) {
+        margin-top: -60px;
+        transition-delay: 0.5s;
+      }
+
+      .about-gallery-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .about-gallery-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Portfolio Image Gallery Section (3-column grid) */
       .image-gallery {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -782,6 +837,35 @@
           font-size: 1.2rem;
         }
 
+        .about-gallery {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .about-gallery-image {
+          max-width: 100%;
+          height: 400px !important;
+        }
+
+        .about-gallery-image img {
+          width: 100%;
+          height: 400px !important;
+          object-fit: cover;
+        }
+
+        .about-gallery-image:nth-child(1),
+        .about-gallery-image:nth-child(2),
+        .about-gallery-image:nth-child(3) {
+          margin-top: 0;
+          height: 400px !important;
+        }
+
+        .about-gallery-image:nth-child(1) img,
+        .about-gallery-image:nth-child(2) img,
+        .about-gallery-image:nth-child(3) img {
+          height: 400px !important;
+        }
+
         .image-gallery {
           grid-template-columns: 1fr;
           gap: 1rem;
@@ -968,52 +1052,27 @@
 
     <!-- Image Gallery Section -->
     <section id="about">
-      <h2 class="section-title">Our Portfolio</h2>
-      <div class="image-gallery">
-        <div class="gallery-image">
+      <div class="about-gallery">
+        <div class="about-gallery-image">
           <img
             src="https://pjdesignsva.com/wp-content/uploads/2020/09/bathroom1.jpg"
             alt="PJ Designs Interior Work"
           />
         </div>
-        <div class="gallery-image">
-          <img
-            src="images/upolstry.jpg"
-            alt="Custom Upholstery"
-          />
-        </div>
-        <div class="gallery-image">
+        <div class="about-gallery-image">
           <img
             src="https://pjdesignsva.com/wp-content/uploads/2020/08/hero-img-1.jpg"
             alt="PJ Designs Project"
           />
         </div>
-        <div class="gallery-image">
-          <img
-            src="images/furniture.jpg"
-            alt="Furniture Design"
-          />
-        </div>
-        <div class="gallery-image">
+        <div class="about-gallery-image">
           <img
             src="https://pjdesignsva.com/wp-content/uploads/2014/03/pjdesigns002-1024x682.jpg"
             alt="PJ Designs Portfolio"
           />
         </div>
-        <div class="gallery-image">
-          <img
-            src="images/DSC02356-scaled.jpg"
-            alt="Interior Design"
-          />
-        </div>
       </div>
     </section>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-      <span class="lightbox-close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" alt="Gallery Image">
-    </div>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -1099,45 +1158,51 @@
     <!-- Portfolio Section -->
     <section id="portfolio">
       <h2 class="section-title">Our Work</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item fade-in">
-          <div class="portfolio-content">
-            <h3>Brand Identity</h3>
-            <p>Complete branding package for modern startup</p>
-          </div>
+      <div class="image-gallery">
+        <div class="gallery-image">
+          <img
+            src="https://pjdesignsva.com/wp-content/uploads/2020/09/bathroom1.jpg"
+            alt="PJ Designs Interior Work"
+          />
         </div>
-        <div class="portfolio-item fade-in">
-          <div class="portfolio-content">
-            <h3>Website Redesign</h3>
-            <p>E-commerce platform transformation</p>
-          </div>
+        <div class="gallery-image">
+          <img
+            src="images/upolstry.jpg"
+            alt="Custom Upholstery"
+          />
         </div>
-        <div class="portfolio-item fade-in">
-          <div class="portfolio-content">
-            <h3>Marketing Campaign</h3>
-            <p>Multi-channel digital marketing success</p>
-          </div>
+        <div class="gallery-image">
+          <img
+            src="https://pjdesignsva.com/wp-content/uploads/2020/08/hero-img-1.jpg"
+            alt="PJ Designs Project"
+          />
         </div>
-        <div class="portfolio-item fade-in">
-          <div class="portfolio-content">
-            <h3>Logo Design</h3>
-            <p>Memorable logos for growing businesses</p>
-          </div>
+        <div class="gallery-image">
+          <img
+            src="images/furniture.jpg"
+            alt="Furniture Design"
+          />
         </div>
-        <div class="portfolio-item fade-in">
-          <div class="portfolio-content">
-            <h3>Print Design</h3>
-            <p>Professional marketing materials</p>
-          </div>
+        <div class="gallery-image">
+          <img
+            src="https://pjdesignsva.com/wp-content/uploads/2014/03/pjdesigns002-1024x682.jpg"
+            alt="PJ Designs Portfolio"
+          />
         </div>
-        <div class="portfolio-item fade-in">
-          <div class="portfolio-content">
-            <h3>Social Media</h3>
-            <p>Engaging social media graphics</p>
-          </div>
+        <div class="gallery-image">
+          <img
+            src="images/DSC02356-scaled.jpg"
+            alt="Interior Design"
+          />
         </div>
       </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" alt="Gallery Image">
+    </div>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1238,7 +1303,12 @@
         observer.observe(el);
       });
 
-      // Observe gallery images for scroll animation
+      // Observe about gallery images for scroll animation
+      document.querySelectorAll(".about-gallery-image").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Observe portfolio gallery images for scroll animation
       document.querySelectorAll(".gallery-image").forEach((el) => {
         observer.observe(el);
       });
