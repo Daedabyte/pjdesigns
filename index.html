@@ -146,12 +146,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url("https://marchbranding.com/wp-content/uploads/2024/09/anna-spiro-interiors.webp");
+        background-image: url("images/banner2.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
+        animation: slowZoom 20s ease-in-out infinite alternate;
+      }
+
+      @keyframes slowZoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
       }
 
       .hero::before {
@@ -972,8 +982,18 @@
     <!-- Brands Carousel Section -->
     <section class="brands" id="brands">
       <h2 class="brands-title">Featured Brand Partners</h2>
-      <p style="text-align: center; color: var(--text-light); max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-        PJ Designs maintains retail accounts with almost any fabric, wallpaper, furniture, lighting, carpet, and paint brand. These are just some highlights of companies we've offered since 2004.
+      <p
+        style="
+          text-align: center;
+          color: var(--text-light);
+          max-width: 800px;
+          margin: 0 auto 2rem;
+          font-size: 1.1rem;
+        "
+      >
+        PJ Designs maintains retail accounts with almost any fabric, wallpaper,
+        furniture, lighting, carpet, and paint brand. These are just some
+        highlights of companies we've offered since 2004.
       </p>
       <div class="carousel-container">
         <div class="carousel-wrapper">
@@ -1099,7 +1119,10 @@
             />
             <h3>Upholstery, Fabrics & Wallpaper</h3>
             <p>
-              Custom upholstery and premium fabric selections from leading brands including Cowtan & Tout, Fabricut, Scalamandré, Manuel Canovas, Colefax & Fowler, S. Harris, Stroheim, JAB, Holland & Sherry, and Pindler.
+              Custom upholstery and premium fabric selections from leading
+              brands including Cowtan & Tout, Fabricut, Scalamandré, Manuel
+              Canovas, Colefax & Fowler, S. Harris, Stroheim, JAB, Holland &
+              Sherry, and Pindler.
             </p>
           </div>
         </div>
@@ -1107,7 +1130,9 @@
           <div class="service-content">
             <h3>Window Treatments</h3>
             <p>
-              Beautifully made custom window treatments including Hartmann & Forbes shades, Hunter Douglas shutters and shades. A reputation built on exceptional quality since 2004.
+              Beautifully made custom window treatments including Hartmann &
+              Forbes shades, Hunter Douglas shutters and shades. A reputation
+              built on exceptional quality since 2004.
             </p>
           </div>
         </div>
@@ -1115,7 +1140,9 @@
           <div class="service-content">
             <h3>Furniture & Furnishings</h3>
             <p>
-              Custom furniture and fine furnishings from Michael Thomas Furniture, Miles Talbott Furniture, Gat Creek, and Charleston Forge.
+              Custom furniture and fine furnishings from Michael Thomas
+              Furniture, Miles Talbott Furniture, Gat Creek, and Charleston
+              Forge.
             </p>
           </div>
         </div>
@@ -1128,7 +1155,9 @@
             />
             <h3>Carpets, Rugs & Accessories</h3>
             <p>
-              Distinctive home accessories and luxury carpets and rugs from premium brands. We maintain retail accounts with leading makers to bring you the finest selections.
+              Distinctive home accessories and luxury carpets and rugs from
+              premium brands. We maintain retail accounts with leading makers to
+              bring you the finest selections.
             </p>
           </div>
         </div>
@@ -1141,7 +1170,8 @@
             />
             <h3>Lighting</h3>
             <p>
-              Designer lighting solutions from Visual Comfort & Co. and Curry & Co. to illuminate your space beautifully.
+              Designer lighting solutions from Visual Comfort & Co. and Curry &
+              Co. to illuminate your space beautifully.
             </p>
           </div>
         </div>
@@ -1149,7 +1179,9 @@
           <div class="service-content">
             <h3>Paint & Color Consultation</h3>
             <p>
-              Professional painting services and expert color consultation. We work with all major paint makers to help you achieve the perfect palette for your space.
+              Professional painting services and expert color consultation. We
+              work with all major paint makers to help you achieve the perfect
+              palette for your space.
             </p>
           </div>
         </div>
@@ -1167,10 +1199,7 @@
           />
         </div>
         <div class="gallery-image">
-          <img
-            src="images/upolstry.jpg"
-            alt="Custom Upholstery"
-          />
+          <img src="images/upolstry.jpg" alt="Custom Upholstery" />
         </div>
         <div class="gallery-image">
           <img
@@ -1179,10 +1208,7 @@
           />
         </div>
         <div class="gallery-image">
-          <img
-            src="images/furniture.jpg"
-            alt="Furniture Design"
-          />
+          <img src="images/furniture.jpg" alt="Furniture Design" />
         </div>
         <div class="gallery-image">
           <img
@@ -1191,10 +1217,7 @@
           />
         </div>
         <div class="gallery-image">
-          <img
-            src="images/DSC02356-scaled.jpg"
-            alt="Interior Design"
-          />
+          <img src="images/DSC02356-scaled.jpg" alt="Interior Design" />
         </div>
       </div>
     </section>
@@ -1202,7 +1225,7 @@
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
       <span class="lightbox-close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" alt="Gallery Image">
+      <img class="lightbox-content" id="lightbox-img" alt="Gallery Image" />
     </div>
 
     <!-- Contact Section -->
