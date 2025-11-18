@@ -146,13 +146,38 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url("images/banner2.png");
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        position: relative;
-        overflow: hidden;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
         animation: slowZoom 20s ease-in-out infinite alternate;
+      }
+
+      .hero-slide.active {
+        opacity: 1;
+      }
+
+      .hero-slide:nth-child(1) {
+        background-image: url("images/banner.png");
+      }
+
+      .hero-slide:nth-child(2) {
+        background-image: url("images/banner2.png");
+      }
+
+      .hero-slide:nth-child(3) {
+        background-image: url("images/banner3.png");
       }
 
       @keyframes slowZoom {
@@ -172,13 +197,13 @@
         right: 0;
         bottom: 0;
         background: rgba(0, 0, 0, 0.4);
-        z-index: 0;
+        z-index: 1;
       }
 
       .hero-content {
         text-align: center;
         color: var(--white);
-        z-index: 1;
+        z-index: 2;
         position: relative;
         padding: 2rem;
       }
@@ -971,6 +996,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
       <div class="hero-content">
         <h1>Creative Design Solutions</h1>
         <p>Transforming Ideas Into Stunning Visual Experiences</p>
@@ -1371,6 +1399,29 @@
           }
         });
       });
+
+      // Hero Carousel
+      let currentHeroSlide = 0;
+      const heroSlides = document.querySelectorAll(".hero-slide");
+      const totalHeroSlides = heroSlides.length;
+      let heroInterval;
+
+      function showHeroSlide(index) {
+        heroSlides.forEach((slide) => slide.classList.remove("active"));
+        heroSlides[index].classList.add("active");
+      }
+
+      function nextHeroSlide() {
+        currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+        showHeroSlide(currentHeroSlide);
+      }
+
+      function startHeroCarousel() {
+        heroInterval = setInterval(nextHeroSlide, 5000); // Change slide every 5 seconds
+      }
+
+      // Start hero carousel on page load
+      startHeroCarousel();
 
       // Brands Carousel
       let currentSlide = 0;
