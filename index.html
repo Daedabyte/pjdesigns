@@ -65,27 +65,28 @@
         align-items: center;
       }
 
-      .logo img {
-        color: var(--white);
-        text-decoration: none;
+      .logo {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
         transition: var(--transition);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        max-height: 100px;
-        height: 100%;
+      }
+
+      .logo img {
+        height: 80px;
         width: auto;
+        transition: var(--transition);
+        display: block;
       }
 
       nav.scrolled .logo {
-        color: var(--primary-color);
-        text-shadow: none;
+        background: transparent;
+        padding: 0;
       }
 
-      .logo span {
-        color: var(--white);
-      }
-
-      nav.scrolled .logo span {
-        color: var(--accent-color);
+      nav.scrolled .logo img {
+        height: 50px;
       }
 
       .nav-links {
@@ -1007,15 +1008,14 @@
         }
 
         .nav-links .mobile-logo .logo {
-          font-size: 2rem;
-          font-weight: bold;
-          color: var(--primary-color);
-          text-decoration: none;
-          text-shadow: none;
+          background: transparent;
+          padding: 0;
+          display: inline-block;
         }
 
-        .nav-links .mobile-logo .logo span {
-          color: var(--accent-color);
+        .nav-links .mobile-logo .logo img {
+          height: 60px;
+          width: auto;
         }
 
         .hero h1 {
@@ -1138,9 +1138,9 @@
     <!-- Navigation -->
     <nav id="navbar">
       <div class="nav-container">
-        <a href="#" class="logo"
-          ><img src="images/logo.png" alt="PJ Designs" style="height: 50px"
-        /></a>
+        <a href="#" class="logo">
+          <img src="images/logo.png" alt="PJ Designs" />
+        </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -1149,7 +1149,9 @@
           <li><a href="#booking">Book Now</a></li>
           <li><a href="#contact">Contact</a></li>
           <li class="mobile-logo">
-            <a href="#" class="logo">P J <span>Designs</span></a>
+            <a href="#" class="logo">
+              <img src="images/logo.png" alt="PJ Designs" />
+            </a>
           </li>
         </ul>
         <div class="hamburger" id="hamburger">
