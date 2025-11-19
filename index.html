@@ -119,6 +119,10 @@
         color: var(--accent-color);
       }
 
+      .mobile-logo {
+        display: none;
+      }
+
       .hamburger {
         display: none;
         flex-direction: column;
@@ -948,12 +952,12 @@
           background: var(--white);
           width: 100%;
           height: 100vh;
-          padding: 5rem 2rem 2rem;
+          padding: 5rem 0 2rem;
           box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
           transition: right 0.3s ease;
           z-index: 1000;
-          justify-content: flex-start;
-          gap: 2rem;
+          justify-content: space-between;
+          gap: 0;
           overflow-y: auto;
         }
 
@@ -961,15 +965,48 @@
           right: 0;
         }
 
+        .nav-links li {
+          border-bottom: 1px solid #eee;
+          width: 100%;
+        }
+
+        .nav-links li.mobile-logo {
+          border-bottom: none;
+        }
+
         .nav-links a {
           color: var(--text-dark);
           font-size: 1.5rem;
           text-shadow: none;
-          padding: 1rem 0;
-          border-bottom: 1px solid #eee;
+          padding: 1rem 2rem;
+          text-align: center;
+          display: block;
         }
 
         .nav-links a:hover {
+          color: var(--accent-color);
+        }
+
+        .mobile-logo {
+          display: none;
+        }
+
+        .nav-links .mobile-logo {
+          display: block;
+          text-align: center;
+          padding: 2rem;
+          margin-top: auto;
+        }
+
+        .nav-links .mobile-logo .logo {
+          font-size: 2rem;
+          font-weight: bold;
+          color: var(--primary-color);
+          text-decoration: none;
+          text-shadow: none;
+        }
+
+        .nav-links .mobile-logo .logo span {
           color: var(--accent-color);
         }
 
@@ -1101,6 +1138,9 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#booking">Book Now</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li class="mobile-logo">
+            <a href="#" class="logo">P J <span>Designs</span></a>
+          </li>
         </ul>
         <div class="hamburger" id="hamburger">
           <span></span>
