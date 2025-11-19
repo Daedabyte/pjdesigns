@@ -124,19 +124,53 @@
         flex-direction: column;
         cursor: pointer;
         gap: 4px;
+        z-index: 1001;
+        position: relative;
       }
 
       .hamburger span {
         width: 25px;
         height: 3px;
         background: var(--white);
-        transition: var(--transition);
+        transition: all 0.3s ease;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        transform-origin: center;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
       }
 
       nav.scrolled .hamburger span {
         background: var(--primary-color);
         box-shadow: none;
+      }
+
+      /* Mobile Nav Overlay */
+      .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .nav-overlay.active {
+        display: block;
+        opacity: 1;
       }
 
       /* Hero Section */
@@ -903,18 +937,35 @@
 
         .nav-links {
           position: fixed;
-          top: 70px;
-          left: -100%;
+          top: 0;
+          right: -100%;
           flex-direction: column;
           background: var(--white);
           width: 100%;
-          padding: 2rem;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          transition: var(--transition);
+          height: 100vh;
+          padding: 5rem 2rem 2rem;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+          transition: right 0.3s ease;
+          z-index: 1000;
+          justify-content: flex-start;
+          gap: 2rem;
+          overflow-y: auto;
         }
 
         .nav-links.active {
-          left: 0;
+          right: 0;
+        }
+
+        .nav-links a {
+          color: var(--text-dark);
+          font-size: 1.5rem;
+          text-shadow: none;
+          padding: 1rem 0;
+          border-bottom: 1px solid #eee;
+        }
+
+        .nav-links a:hover {
+          color: var(--accent-color);
         }
 
         .hero h1 {
@@ -1053,6 +1104,9 @@
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1404,15 +1458,36 @@
       // Mobile Navigation Toggle
       const hamburger = document.getElementById("hamburger");
       const navLinks = document.getElementById("navLinks");
+      const navOverlay = document.getElementById("navOverlay");
 
-      hamburger.addEventListener("click", () => {
+      function toggleMobileMenu() {
         navLinks.classList.toggle("active");
-      });
+        hamburger.classList.toggle("active");
+        navOverlay.classList.toggle("active");
+        // Prevent body scroll when menu is open
+        if (navLinks.classList.contains("active")) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      }
+
+      function closeMobileMenu() {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+        navOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      hamburger.addEventListener("click", toggleMobileMenu);
+
+      // Close mobile menu when clicking overlay
+      navOverlay.addEventListener("click", closeMobileMenu);
 
       // Close mobile menu when clicking a link
       document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
+          closeMobileMenu();
         });
       });
 
