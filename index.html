@@ -361,6 +361,26 @@
         transform: rotate(180deg);
       }
 
+      .wave-animation {
+        animation: wave 8s ease-in-out infinite;
+        transform-origin: 50% 50%;
+      }
+
+      @keyframes wave {
+        0%, 100% {
+          transform: translateY(0) scaleY(1);
+        }
+        25% {
+          transform: translateY(-3px) scaleY(1.05);
+        }
+        50% {
+          transform: translateY(0) scaleY(1);
+        }
+        75% {
+          transform: translateY(3px) scaleY(0.95);
+        }
+      }
+
       .section-title {
         font-size: 2.5rem;
         text-align: center;
@@ -1283,11 +1303,14 @@
             d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.2"
+            class="wave-animation"
           />
           <path
             d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.3"
+            class="wave-animation"
+            style="animation-delay: 0.5s;"
           />
         </svg>
       </div>
@@ -1493,11 +1516,14 @@
             d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#f9ad4a"
             opacity="0.2"
+            class="wave-animation"
           />
           <path
             d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#f9ad4a"
             opacity="0.3"
+            class="wave-animation"
+            style="animation-delay: 0.5s;"
           />
         </svg>
       </div>
@@ -1551,11 +1577,14 @@
             d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.2"
+            class="wave-animation"
           />
           <path
             d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.3"
+            class="wave-animation"
+            style="animation-delay: 0.5s;"
           />
         </svg>
       </div>
