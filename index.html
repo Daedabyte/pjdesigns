@@ -364,15 +364,16 @@
       }
 
       .wave-animation-left {
-        animation: waveLeft 8s ease-in-out infinite;
+        animation: waveLeft 4s ease-in-out infinite;
       }
 
       .wave-animation-right {
-        animation: waveRight 8s ease-in-out infinite;
+        animation: waveRight 4s ease-in-out infinite;
       }
 
       @keyframes waveLeft {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateX(0);
         }
         50% {
@@ -381,7 +382,8 @@
       }
 
       @keyframes waveRight {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateX(0);
         }
         50% {
