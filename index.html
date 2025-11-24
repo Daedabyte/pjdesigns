@@ -351,8 +351,10 @@
       }
 
       .section-divider svg {
-        width: 100%;
+        width: 120%;
         height: 100%;
+        position: absolute;
+        left: -10%;
       }
 
       .section-divider.bottom {
@@ -361,23 +363,29 @@
         transform: rotate(180deg);
       }
 
-      .wave-animation {
-        animation: wave 8s ease-in-out infinite;
-        transform-origin: 50% 50%;
+      .wave-animation-left {
+        animation: waveLeft 12s ease-in-out infinite;
       }
 
-      @keyframes wave {
+      .wave-animation-right {
+        animation: waveRight 12s ease-in-out infinite;
+      }
+
+      @keyframes waveLeft {
         0%, 100% {
-          transform: translateY(0) scaleY(1);
-        }
-        25% {
-          transform: translateY(-3px) scaleY(1.05);
+          transform: translateX(0);
         }
         50% {
-          transform: translateY(0) scaleY(1);
+          transform: translateX(-40px);
         }
-        75% {
-          transform: translateY(3px) scaleY(0.95);
+      }
+
+      @keyframes waveRight {
+        0%, 100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(40px);
         }
       }
 
@@ -1303,14 +1311,13 @@
             d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.2"
-            class="wave-animation"
+            class="wave-animation-right"
           />
           <path
             d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.3"
-            class="wave-animation"
-            style="animation-delay: 0.5s;"
+            class="wave-animation-left"
           />
         </svg>
       </div>
@@ -1516,14 +1523,13 @@
             d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#f9ad4a"
             opacity="0.2"
-            class="wave-animation"
+            class="wave-animation-right"
           />
           <path
             d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#f9ad4a"
             opacity="0.3"
-            class="wave-animation"
-            style="animation-delay: 0.5s;"
+            class="wave-animation-left"
           />
         </svg>
       </div>
@@ -1577,14 +1583,13 @@
             d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.2"
-            class="wave-animation"
+            class="wave-animation-right"
           />
           <path
             d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
             fill="#5baec7"
             opacity="0.3"
-            class="wave-animation"
-            style="animation-delay: 0.5s;"
+            class="wave-animation-left"
           />
         </svg>
       </div>
