@@ -728,21 +728,18 @@
         background-image: url("images/window-blinds.jpg");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
       }
 
       .service-card:nth-child(3) {
         background-image: url("images/furniture.jpg");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
       }
 
       .service-card:nth-child(6) {
         background-image: url("images/painting-colors.jpg");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
       }
 
       .service-content {
@@ -761,8 +758,6 @@
         border-radius: 10px;
         margin-bottom: 1.5rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        transition: transform 0.1s ease-out;
-        will-change: transform;
       }
 
       .service-card h3 {
@@ -1719,22 +1714,6 @@
         const scrollPosition = window.scrollY;
         heroSlides.forEach((slide) => {
           slide.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-        });
-
-        // Parallax effect on service images
-        const serviceImages = document.querySelectorAll(".service-image");
-        serviceImages.forEach(image => {
-          const card = image.closest(".service-card");
-          const cardTop = card.getBoundingClientRect().top;
-          const cardHeight = card.offsetHeight;
-          const windowHeight = window.innerHeight;
-
-          // Only apply parallax when card is in viewport
-          if (cardTop < windowHeight && cardTop > -cardHeight) {
-            const scrollProgress = (windowHeight - cardTop) / (windowHeight + cardHeight);
-            const translateY = (scrollProgress - 0.5) * 30; // Subtle movement
-            image.style.transform = `translateY(${translateY}px)`;
-          }
         });
       });
 
