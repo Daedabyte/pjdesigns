@@ -71,19 +71,39 @@
 
       .logo {
         transition: var(--transition);
+        position: relative;
       }
 
       .logo img {
         height: 80px;
         width: auto;
-        transition: var(--transition);
+        transition: all 0.4s ease;
         display: block;
+      }
+
+      .logo-white {
         filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+        opacity: 1;
+      }
+
+      .logo-color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+        opacity: 0;
       }
 
       nav.scrolled .logo img {
         height: 50px;
-        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+      }
+
+      nav.scrolled .logo-white {
+        opacity: 0;
+      }
+
+      nav.scrolled .logo-color {
+        opacity: 1;
       }
 
       .nav-links {
@@ -1162,7 +1182,8 @@
     <nav id="navbar">
       <div class="nav-container">
         <a href="#" class="logo">
-          <img src="images/logo.png" alt="PJ Designs" />
+          <img src="images/PJ_Logo_White.png" alt="PJ Designs" class="logo-white" />
+          <img src="images/PJ_Logo_Color.png" alt="PJ Designs" class="logo-color" />
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
@@ -1173,7 +1194,7 @@
           <li><a href="#contact">Contact</a></li>
           <li class="mobile-logo">
             <a href="#" class="logo">
-              <img src="images/logo.png" alt="PJ Designs" />
+              <img src="images/PJ_Logo_Color.png" alt="PJ Designs" />
             </a>
           </li>
         </ul>
