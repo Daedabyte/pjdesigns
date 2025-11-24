@@ -47,7 +47,11 @@
         left: 0;
         width: 0%;
         height: 4px;
-        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
         z-index: 10000;
         transition: width 0.1s ease;
         box-shadow: 0 2px 10px rgba(91, 174, 199, 0.5);
@@ -1271,16 +1275,22 @@
       </div>
     </section>
 
-    <!-- Wave Divider -->
-    <div class="section-divider">
-      <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-        <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.2" />
-        <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.3" />
-      </svg>
-    </div>
-
     <!-- Brands Carousel Section -->
     <section class="brands" id="brands">
+      <div class="section-divider">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path
+            d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#5baec7"
+            opacity="0.2"
+          />
+          <path
+            d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#5baec7"
+            opacity="0.3"
+          />
+        </svg>
+      </div>
       <h2 class="brands-title">Featured Brand Partners</h2>
       <p
         style="
@@ -1479,8 +1489,16 @@
       <!-- Wave Divider -->
       <div class="section-divider">
         <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.2" />
-          <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.3" />
+          <path
+            d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#f9ad4a"
+            opacity="0.2"
+          />
+          <path
+            d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#f9ad4a"
+            opacity="0.3"
+          />
         </svg>
       </div>
       <h2 class="section-title">Our Work</h2>
@@ -1529,8 +1547,16 @@
       <!-- Wave Divider -->
       <div class="section-divider">
         <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.2" />
-          <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.3" />
+          <path
+            d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#5baec7"
+            opacity="0.2"
+          />
+          <path
+            d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#5baec7"
+            opacity="0.3"
+          />
         </svg>
       </div>
       <h2 class="section-title">Schedule a Consultation</h2>
@@ -1677,14 +1703,16 @@
         }
 
         // Scroll progress indicator
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const windowHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
         const scrolled = (window.scrollY / windowHeight) * 100;
         scrollProgress.style.width = scrolled + "%";
 
         // Parallax effect on hero slides
         const heroSlides = document.querySelectorAll(".hero-slide");
         const scrollPosition = window.scrollY;
-        heroSlides.forEach(slide => {
+        heroSlides.forEach((slide) => {
           slide.style.transform = `translateY(${scrollPosition * 0.5}px)`;
         });
       });
