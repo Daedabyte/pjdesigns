@@ -40,6 +40,19 @@
         overflow-x: hidden;
       }
 
+      /* Scroll Progress Indicator */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        z-index: 10000;
+        transition: width 0.1s ease;
+        box-shadow: 0 2px 10px rgba(91, 174, 199, 0.5);
+      }
+
       /* Navigation */
       nav {
         position: fixed;
@@ -224,13 +237,14 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 120%;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         opacity: 0;
         transition: opacity 1.5s ease-in-out;
         animation: slowZoom 20s ease-in-out infinite alternate;
+        will-change: transform;
       }
 
       .hero-slide.active {
@@ -318,6 +332,42 @@
         padding: 5rem 2rem;
         max-width: 2000px;
         margin: 0 auto;
+        position: relative;
+      }
+
+      /* Animated Section Dividers */
+      .section-divider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .section-divider svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .section-divider.bottom {
+        top: auto;
+        bottom: 0;
+        transform: rotate(180deg);
+      }
+
+      .wave-animation {
+        animation: waveMove 8s ease-in-out infinite;
+      }
+
+      @keyframes waveMove {
+        0%, 100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-25px);
+        }
       }
 
       .section-title {
@@ -1178,6 +1228,9 @@
     </style>
   </head>
   <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
       <div class="nav-container">
@@ -1322,6 +1375,13 @@
 
     <!-- Image Gallery Section -->
     <section id="about">
+      <!-- Wave Divider -->
+      <div class="section-divider">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.2" class="wave-animation" />
+          <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.3" />
+        </svg>
+      </div>
       <div class="about-gallery">
         <div class="about-gallery-image">
           <img
@@ -1428,6 +1488,13 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio">
+      <!-- Wave Divider -->
+      <div class="section-divider">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.2" class="wave-animation" />
+          <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.3" />
+        </svg>
+      </div>
       <h2 class="section-title">Our Work</h2>
       <div class="image-gallery">
         <div class="gallery-image">
@@ -1602,14 +1669,29 @@
         });
       });
 
-      // Navbar scroll effect
+      // Navbar scroll effect and scroll progress
       const navbar = document.getElementById("navbar");
+      const scrollProgress = document.getElementById("scrollProgress");
+
       window.addEventListener("scroll", () => {
+        // Navbar scroll effect
         if (window.scrollY > 50) {
           navbar.classList.add("scrolled");
         } else {
           navbar.classList.remove("scrolled");
         }
+
+        // Scroll progress indicator
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + "%";
+
+        // Parallax effect on hero slides
+        const heroSlides = document.querySelectorAll(".hero-slide");
+        const scrollPosition = window.scrollY;
+        heroSlides.forEach(slide => {
+          slide.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        });
       });
 
       // Intersection Observer for fade-in animations
