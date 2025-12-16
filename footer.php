@@ -28,7 +28,7 @@ function closeMobileMenu() {
 }
 
 hamburger.addEventListener("click", toggleMobileMenu);
-navOverlay.addEventListener("click", closeMobileMenu");
+navOverlay.addEventListener("click", closeMobileMenu);
 
 // Close mobile menu when clicking a link
 document.querySelectorAll(".nav-links a").forEach((link) => {
