@@ -33,9 +33,26 @@ A custom WordPress theme for PJ Designs - Full-service interior design and retai
 3. Install and activate the **Advanced Custom Fields** plugin (free version)
 
 ### Step 3: Install Theme
-1. Upload the entire `pjdesigns` theme folder to `/wp-content/themes/`
-2. In WordPress admin, go to **Appearance > Themes**
-3. Activate the **PJ Designs** theme
+
+**Option A: Create ZIP File Locally**
+1. Download all theme files from this repository
+2. Create a ZIP file containing: `style.css`, `functions.php`, `header.php`, `footer.php`, `front-page.php`, `README.md`, and the `images/` folder
+3. In WordPress admin, go to **Appearance > Themes > Add New > Upload Theme**
+4. Upload the ZIP file and click **Install Now**
+5. Activate the **PJ Designs** theme
+
+**Option B: Manual Installation via FTP/File Manager**
+1. Download all theme files from this repository
+2. Create a folder named `pjdesigns` on your computer
+3. Place all theme files (style.css, functions.php, header.php, footer.php, front-page.php) and the images folder inside
+4. Upload the entire `pjdesigns` folder to `/wp-content/themes/` via FTP or your hosting file manager
+5. In WordPress admin, go to **Appearance > Themes**
+6. Activate the **PJ Designs** theme
+
+**Note:** The complete theme with images is approximately 162MB. If you need to create a ZIP file, use this command in the theme directory:
+```bash
+zip -r pjdesigns-theme.zip style.css functions.php header.php footer.php front-page.php README.md images/ -x "*.git*"
+```
 
 ### Step 4: Upload Logo Images
 1. Upload your logo files to the theme images folder:
