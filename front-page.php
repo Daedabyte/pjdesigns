@@ -71,9 +71,9 @@ get_header(); ?>
     <div class="carousel-container">
         <div class="carousel-wrapper">
             <?php
-            // Get individual brand fields (ACF Free)
+            // Get individual brand fields (ACF Free - 8 brands)
             $brands = array();
-            for($i = 1; $i <= 4; $i++) {
+            for($i = 1; $i <= 8; $i++) {
                 $logo = get_field('brand_' . $i . '_logo');
                 $tagline = get_field('brand_' . $i . '_tagline');
                 if($logo) {
@@ -428,10 +428,31 @@ get_header(); ?>
                     </div>
                 <?php endif; ?>
 
-                <?php if( get_field('contact_phone') ): ?>
+                <?php if( get_field('contact_phone_1') ): ?>
                     <div class="contact-item">
                         <i class="fa-solid fa-phone"></i>
-                        <span><?php echo esc_html( get_field('contact_phone') ); ?></span>
+                        <span>
+                            <?php echo esc_html( get_field('contact_phone_1') ); ?>
+                            <?php if( get_field('contact_phone_1_tagline') ): ?>
+                                <em style="font-style: italic; color: var(--text-light); font-size: 0.9em;">
+                                    <?php echo esc_html( get_field('contact_phone_1_tagline') ); ?>
+                                </em>
+                            <?php endif; ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
+
+                <?php if( get_field('contact_phone_2') ): ?>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>
+                            <?php echo esc_html( get_field('contact_phone_2') ); ?>
+                            <?php if( get_field('contact_phone_2_tagline') ): ?>
+                                <em style="font-style: italic; color: var(--text-light); font-size: 0.9em;">
+                                    <?php echo esc_html( get_field('contact_phone_2_tagline') ); ?>
+                                </em>
+                            <?php endif; ?>
+                        </span>
                     </div>
                 <?php endif; ?>
 

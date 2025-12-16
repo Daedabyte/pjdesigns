@@ -53,11 +53,11 @@ add_action( 'wp_enqueue_scripts', 'pjdesigns_enqueue_scripts' );
 if( function_exists('acf_add_local_field_group') ):
 
 /**
- * Logo Settings Fields (moved to homepage)
+ * 1. Logo Settings Fields (moved to homepage)
  */
 acf_add_local_field_group(array(
     'key' => 'group_logo_settings',
-    'title' => 'Logo Settings',
+    'title' => '1. Logo Settings',
     'fields' => array(
         array(
             'key' => 'field_logo_white',
@@ -85,14 +85,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 0,
+    'position' => 'normal',
 ));
 
 /**
- * Hero Section Fields
+ * 2. Hero Section Fields
  */
 acf_add_local_field_group(array(
     'key' => 'group_hero_section',
-    'title' => 'Hero Section',
+    'title' => '2. Hero Section',
     'fields' => array(
         array(
             'key' => 'field_hero_title',
@@ -167,14 +169,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 1,
+    'position' => 'normal',
 ));
 
 /**
- * Brand Partners Section Fields
+ * 3. Brand Partners Section Fields (8 brands)
  */
 acf_add_local_field_group(array(
     'key' => 'group_brands_section',
-    'title' => 'Brand Partners Section',
+    'title' => '3. Brand Partners Section',
     'fields' => array(
         array(
             'key' => 'field_brands_title',
@@ -245,6 +249,62 @@ acf_add_local_field_group(array(
             'name' => 'brand_4_tagline',
             'type' => 'text',
         ),
+        // Brand 5
+        array(
+            'key' => 'field_brand_5_logo',
+            'label' => 'Brand 5 Logo',
+            'name' => 'brand_5_logo',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_brand_5_tagline',
+            'label' => 'Brand 5 Tagline',
+            'name' => 'brand_5_tagline',
+            'type' => 'text',
+        ),
+        // Brand 6
+        array(
+            'key' => 'field_brand_6_logo',
+            'label' => 'Brand 6 Logo',
+            'name' => 'brand_6_logo',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_brand_6_tagline',
+            'label' => 'Brand 6 Tagline',
+            'name' => 'brand_6_tagline',
+            'type' => 'text',
+        ),
+        // Brand 7
+        array(
+            'key' => 'field_brand_7_logo',
+            'label' => 'Brand 7 Logo',
+            'name' => 'brand_7_logo',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_brand_7_tagline',
+            'label' => 'Brand 7 Tagline',
+            'name' => 'brand_7_tagline',
+            'type' => 'text',
+        ),
+        // Brand 8
+        array(
+            'key' => 'field_brand_8_logo',
+            'label' => 'Brand 8 Logo',
+            'name' => 'brand_8_logo',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_brand_8_tagline',
+            'label' => 'Brand 8 Tagline',
+            'name' => 'brand_8_tagline',
+            'type' => 'text',
+        ),
     ),
     'location' => array(
         array(
@@ -255,14 +315,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 2,
+    'position' => 'normal',
 ));
 
 /**
- * About Section Fields
+ * 4. About Section Fields
  */
 acf_add_local_field_group(array(
     'key' => 'group_about_section',
-    'title' => 'About Section',
+    'title' => '4. About Section',
     'fields' => array(
         array(
             'key' => 'field_about_title',
@@ -311,14 +373,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 3,
+    'position' => 'normal',
 ));
 
 /**
- * Services Section Fields (6 individual services)
+ * 5. Services Section Fields (6 individual services)
  */
 acf_add_local_field_group(array(
     'key' => 'group_services_section',
-    'title' => 'Services Section',
+    'title' => '5. Services Section',
     'fields' => array(
         array(
             'key' => 'field_services_title',
@@ -595,14 +659,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 4,
+    'position' => 'normal',
 ));
 
 /**
- * Portfolio Section Fields (12 individual images)
+ * 6. Portfolio Section Fields (12 individual images)
  */
 acf_add_local_field_group(array(
     'key' => 'group_portfolio_section',
-    'title' => 'Portfolio Section',
+    'title' => '6. Portfolio Section',
     'fields' => array(
         array(
             'key' => 'field_portfolio_title',
@@ -705,14 +771,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 5,
+    'position' => 'normal',
 ));
 
 /**
- * Booking Section Fields
+ * 7. Booking Section Fields
  */
 acf_add_local_field_group(array(
     'key' => 'group_booking_section',
-    'title' => 'Booking Section',
+    'title' => '7. Schedule a Consultation Section',
     'fields' => array(
         array(
             'key' => 'field_booking_title',
@@ -744,14 +812,16 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 6,
+    'position' => 'normal',
 ));
 
 /**
- * Contact Section Fields
+ * 8. Contact Section Fields
  */
 acf_add_local_field_group(array(
     'key' => 'group_contact_section',
-    'title' => 'Contact Section',
+    'title' => '8. Contact Section',
     'fields' => array(
         array(
             'key' => 'field_contact_title',
@@ -779,11 +849,37 @@ acf_add_local_field_group(array(
             'name' => 'contact_email',
             'type' => 'email',
         ),
+        // Phone 1
         array(
-            'key' => 'field_contact_phone',
-            'label' => 'Phone Number',
-            'name' => 'contact_phone',
+            'key' => 'field_contact_phone_1',
+            'label' => 'Phone Number 1',
+            'name' => 'contact_phone_1',
             'type' => 'text',
+            'instructions' => 'First phone number',
+        ),
+        array(
+            'key' => 'field_contact_phone_1_tagline',
+            'label' => 'Phone 1 Tagline',
+            'name' => 'contact_phone_1_tagline',
+            'type' => 'text',
+            'instructions' => 'e.g., "call, voicemail"',
+            'placeholder' => 'call, voicemail',
+        ),
+        // Phone 2
+        array(
+            'key' => 'field_contact_phone_2',
+            'label' => 'Phone Number 2',
+            'name' => 'contact_phone_2',
+            'type' => 'text',
+            'instructions' => 'Second phone number (optional)',
+        ),
+        array(
+            'key' => 'field_contact_phone_2_tagline',
+            'label' => 'Phone 2 Tagline',
+            'name' => 'contact_phone_2_tagline',
+            'type' => 'text',
+            'instructions' => 'e.g., "call, text"',
+            'placeholder' => 'call, text',
         ),
         array(
             'key' => 'field_contact_location',
@@ -801,6 +897,8 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
+    'menu_order' => 7,
+    'position' => 'normal',
 ));
 
 endif; // End ACF check
