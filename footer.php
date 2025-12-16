@@ -58,7 +58,7 @@ window.addEventListener("scroll", () => {
     const heroSlides = document.querySelectorAll(".hero-slide");
     const scrollPosition = window.scrollY;
     heroSlides.forEach((slide) => {
-        slide.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        slide.style.transform = "translateY(" + (scrollPosition * 0.5) + "px)";
     });
 });
 
@@ -97,7 +97,7 @@ if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const name = document.getElementById("name").value;
-        alert(`Thank you, ${name}! We've received your message and will get back to you soon.`);
+        alert("Thank you, " + name + "! We've received your message and will get back to you soon.");
         contactForm.reset();
     });
 }
