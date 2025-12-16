@@ -36,7 +36,7 @@ A custom WordPress theme for PJ Designs - Full-service interior design and retai
 
 **Option A: Create ZIP File Locally**
 1. Download all theme files from this repository
-2. Create a ZIP file containing: `style.css`, `functions.php`, `header.php`, `footer.php`, `front-page.php`, `README.md`, and the `images/` folder
+2. Create a ZIP file containing: `style.css`, `functions.php`, `header.php`, `footer.php`, `index.php`, `front-page.php`, `README.md`, and the `images/` folder
 3. In WordPress admin, go to **Appearance > Themes > Add New > Upload Theme**
 4. Upload the ZIP file and click **Install Now**
 5. Activate the **PJ Designs** theme
@@ -44,14 +44,14 @@ A custom WordPress theme for PJ Designs - Full-service interior design and retai
 **Option B: Manual Installation via FTP/File Manager**
 1. Download all theme files from this repository
 2. Create a folder named `pjdesigns` on your computer
-3. Place all theme files (style.css, functions.php, header.php, footer.php, front-page.php) and the images folder inside
+3. Place all theme files (style.css, functions.php, header.php, footer.php, index.php, front-page.php) and the images folder inside
 4. Upload the entire `pjdesigns` folder to `/wp-content/themes/` via FTP or your hosting file manager
 5. In WordPress admin, go to **Appearance > Themes**
 6. Activate the **PJ Designs** theme
 
 **Note:** The complete theme with images is approximately 162MB. If you need to create a ZIP file, use this command in the theme directory:
 ```bash
-zip -r pjdesigns-theme.zip style.css functions.php header.php footer.php front-page.php README.md images/ -x "*.git*"
+zip -r pjdesigns-theme.zip style.css functions.php header.php footer.php index.php front-page.php README.md images/ -x "*.git*"
 ```
 
 ### Step 4: Upload Logo Images
@@ -139,7 +139,8 @@ pjdesigns/
 ├── functions.php       # Theme functions and ACF field registration
 ├── header.php          # Header template with navigation
 ├── footer.php          # Footer template with JavaScript
-├── front-page.php      # Main homepage template with ACF integration
+├── index.php           # Main fallback template (required by WordPress)
+├── front-page.php      # Homepage template with ACF integration
 ├── images/             # Theme images folder
 │   ├── PJ_Logo_White.png
 │   ├── PJ_Logo_Color.png
