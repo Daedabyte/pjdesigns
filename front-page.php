@@ -1,6 +1,7 @@
 <?php
 /**
  * Front Page Template
+ * ACF Free Version - Using Individual Fields
  *
  * @package PJDesigns
  */
@@ -10,12 +11,20 @@ get_header(); ?>
 <!-- Hero Section -->
 <section class="hero" id="home">
     <?php
-    $hero_images = get_field('hero_images');
-    if( $hero_images && is_array($hero_images) ):
-        foreach( $hero_images as $index => $image ):
+    // Get individual hero images (ACF Free)
+    $hero_images = array();
+    for($i = 1; $i <= 4; $i++) {
+        $image_url = get_field('hero_image_' . $i);
+        if($image_url) {
+            $hero_images[] = $image_url;
+        }
+    }
+
+    if( !empty($hero_images) ):
+        foreach( $hero_images as $index => $image_url ):
             $active_class = ($index === 0) ? 'active' : '';
             ?>
-            <div class="hero-slide <?php echo $active_class; ?>" style="background-image: url('<?php echo esc_url($image['image']); ?>');"></div>
+            <div class="hero-slide <?php echo $active_class; ?>" style="background-image: url('<?php echo esc_url($image_url); ?>');"></div>
         <?php endforeach;
     else:
         // Default hero images
@@ -62,36 +71,73 @@ get_header(); ?>
     <div class="carousel-container">
         <div class="carousel-wrapper">
             <?php
-            $brands = get_field('brands');
-            if( $brands && is_array($brands) ):
+            // Get individual brand fields (ACF Free)
+            $brands = array();
+            for($i = 1; $i <= 4; $i++) {
+                $logo = get_field('brand_' . $i . '_logo');
+                $tagline = get_field('brand_' . $i . '_tagline');
+                if($logo) {
+                    $brands[] = array('logo' => $logo, 'tagline' => $tagline);
+                }
+            }
+
+            if( !empty($brands) ):
                 foreach( $brands as $index => $brand ):
                     $active_class = ($index === 0) ? 'active' : '';
                     ?>
                     <div class="carousel-slide <?php echo $active_class; ?>">
                         <div class="brand-logo">
-                            <?php if( isset($brand['logo']) && $brand['logo'] ): ?>
-                                <img src="<?php echo esc_url($brand['logo']['url']); ?>" alt="<?php echo esc_attr($brand['logo']['alt'] ?: 'Brand Logo'); ?>" />
-                            <?php endif; ?>
+                            <img src="<?php echo esc_url($brand['logo']['url']); ?>" alt="<?php echo esc_attr($brand['logo']['alt'] ?: 'Brand Logo'); ?>" />
                         </div>
-                        <?php if( isset($brand['tagline']) ): ?>
+                        <?php if( $brand['tagline'] ): ?>
                             <div class="brand-tagline"><?php echo esc_html($brand['tagline']); ?></div>
                         <?php endif; ?>
                     </div>
                 <?php endforeach;
             else:
-                // Default brands - you can remove this fallback in production
-                echo '<!-- Add brands via ACF in WordPress admin -->';
-            endif;
-            ?>
+                // Default brands
+                ?>
+                <div class="carousel-slide active">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/fabricut.png" alt="Fabricut" />
+                    </div>
+                    <div class="brand-tagline">Premium Fabrics & Textiles</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/sharris.png" alt="Samuel & Sons" />
+                    </div>
+                    <div class="brand-tagline">Luxury Trimmings & Passementerie</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/curry-logo.jpg" alt="Curry & Company" />
+                    </div>
+                    <div class="brand-tagline">Designer Lighting & Mirrors</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/Hartmann&Forbes.png" alt="Hartmann&Forbes" />
+                    </div>
+                    <div class="brand-tagline">Natural Window Coverings</div>
+                </div>
+            <?php endif; ?>
         </div>
 
-        <?php if( $brands && is_array($brands) && count($brands) > 1 ): ?>
+        <?php if( !empty($brands) && count($brands) > 1 ): ?>
             <div class="carousel-dots">
                 <?php foreach( $brands as $index => $brand ):
                     $active_class = ($index === 0) ? 'active' : '';
                     ?>
                     <span class="dot <?php echo $active_class; ?>" data-slide="<?php echo $index; ?>"></span>
                 <?php endforeach; ?>
+            </div>
+        <?php elseif( empty($brands) ): ?>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
             </div>
         <?php endif; ?>
     </div>
@@ -127,27 +173,33 @@ get_header(); ?>
 
     <div class="about-gallery">
         <?php
-        $about_gallery = get_field('about_gallery');
-        if( $about_gallery && is_array($about_gallery) ):
-            foreach( $about_gallery as $image_item ):
-                if( isset($image_item['image']) ):
-                    ?>
-                    <div class="about-gallery-image">
-                        <img src="<?php echo esc_url($image_item['image']['url']); ?>" alt="<?php echo esc_attr($image_item['image']['alt'] ?: 'PJ Designs Work'); ?>" />
-                    </div>
-                <?php endif;
-            endforeach;
+        // Get individual about images (ACF Free)
+        $about_images = array();
+        for($i = 1; $i <= 3; $i++) {
+            $image = get_field('about_image_' . $i);
+            if($image) {
+                $about_images[] = $image;
+            }
+        }
+
+        if( !empty($about_images) ):
+            foreach( $about_images as $image ):
+                ?>
+                <div class="about-gallery-image">
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: 'PJ Designs Work'); ?>" />
+                </div>
+            <?php endforeach;
         else:
             // Default images
             ?>
             <div class="about-gallery-image">
-                <img src="https://pjdesignsva.com/wp-content/uploads/2020/09/bathroom1.jpg" alt="PJ Designs Interior Work" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/carpets.jpg" alt="PJ Designs Carpets" />
             </div>
             <div class="about-gallery-image">
-                <img src="https://pjdesignsva.com/wp-content/uploads/2020/08/hero-img-1.jpg" alt="PJ Designs Project" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/painting-colors.jpg" alt="PJ Designs Paint Colors" />
             </div>
             <div class="about-gallery-image">
-                <img src="https://pjdesignsva.com/wp-content/uploads/2014/03/pjdesigns002-1024x682.jpg" alt="PJ Designs Portfolio" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/window-blinds.jpg" alt="PJ Designs Window Treatments" />
             </div>
         <?php endif; ?>
     </div>
@@ -159,16 +211,30 @@ get_header(); ?>
 
     <div class="services-grid">
         <?php
-        $services = get_field('services');
-        if( $services && is_array($services) ):
-            foreach( $services as $index => $service ):
-                $card_type = isset($service['card_type']) ? $service['card_type'] : 'solid';
-                $bg_color = isset($service['bg_color']) ? $service['bg_color'] : 'primary';
+        // Get individual service fields (ACF Free)
+        $services = array();
+        for($i = 1; $i <= 6; $i++) {
+            $title = get_field('service_' . $i . '_title');
+            if($title) {
+                $services[] = array(
+                    'title' => $title,
+                    'description' => get_field('service_' . $i . '_description'),
+                    'card_type' => get_field('service_' . $i . '_type') ?: 'solid',
+                    'image' => get_field('service_' . $i . '_image'),
+                    'bg_color' => get_field('service_' . $i . '_bg_color') ?: 'primary',
+                );
+            }
+        }
+
+        if( !empty($services) ):
+            foreach( $services as $service ):
+                $card_type = $service['card_type'];
+                $bg_color = $service['bg_color'];
 
                 $style = '';
                 $bg_class = '';
 
-                if( $card_type === 'background' && isset($service['image']) ):
+                if( $card_type === 'background' && $service['image'] ):
                     $style = 'style="background-image: url(' . esc_url($service['image']['url']) . '); background-size: cover; background-position: center;"';
                 elseif( $card_type === 'solid' ):
                     $bg_class = 'background: var(--' . ($bg_color === 'accent' ? 'accent' : 'primary') . '-color);';
@@ -178,7 +244,7 @@ get_header(); ?>
 
                 <div class="service-card fade-in" <?php echo $style; ?>>
                     <div class="service-content">
-                        <?php if( $card_type === 'solid' && isset($service['image']) ): ?>
+                        <?php if( $card_type === 'solid' && $service['image'] ): ?>
                             <img src="<?php echo esc_url($service['image']['url']); ?>" alt="<?php echo esc_attr($service['image']['alt'] ?: $service['title']); ?>" class="service-image" />
                         <?php endif; ?>
 
@@ -188,8 +254,64 @@ get_header(); ?>
                 </div>
             <?php endforeach;
         else:
-            // Default services - you can remove this in production
-            echo '<!-- Add services via ACF in WordPress admin -->';
+            // Default services with theme images
+            $default_services = array(
+                array(
+                    'title' => 'Window Treatments',
+                    'description' => 'Custom drapes, blinds, shades, and shutters tailored to your space',
+                    'image' => get_template_directory_uri() . '/images/blinds.jpg',
+                    'card_type' => 'background'
+                ),
+                array(
+                    'title' => 'Interior Design',
+                    'description' => 'Full-service design consultation for residential and commercial spaces',
+                    'image' => get_template_directory_uri() . '/images/furniture.jpg',
+                    'bg_color' => 'primary'
+                ),
+                array(
+                    'title' => 'Custom Furniture',
+                    'description' => 'Bespoke furniture pieces designed to match your aesthetic',
+                    'image' => get_template_directory_uri() . '/images/upolstry.jpg',
+                    'bg_color' => 'accent'
+                ),
+                array(
+                    'title' => 'Lighting Design',
+                    'description' => 'Elegant lighting solutions to illuminate your interiors',
+                    'image' => get_template_directory_uri() . '/images/ligihting-image.png',
+                    'bg_color' => 'primary'
+                ),
+                array(
+                    'title' => 'Paint & Wallpaper',
+                    'description' => 'Expert color consultation and wallpaper installation',
+                    'image' => get_template_directory_uri() . '/images/paint-painting.jpg',
+                    'bg_color' => 'accent'
+                ),
+                array(
+                    'title' => 'Home Accessories',
+                    'description' => 'Curated selection of decorative accessories and accents',
+                    'image' => get_template_directory_uri() . '/images/accesories.jpg',
+                    'bg_color' => 'primary'
+                ),
+            );
+
+            foreach($default_services as $service):
+                if(isset($service['card_type']) && $service['card_type'] === 'background'):
+                    $style = 'style="background-image: url(' . esc_url($service['image']) . '); background-size: cover; background-position: center;"';
+                else:
+                    $bg_color = isset($service['bg_color']) ? $service['bg_color'] : 'primary';
+                    $style = 'style="background: var(--' . ($bg_color === 'accent' ? 'accent' : 'primary') . '-color);"';
+                endif;
+                ?>
+                <div class="service-card fade-in" <?php echo $style; ?>>
+                    <div class="service-content">
+                        <?php if(!isset($service['card_type']) || $service['card_type'] !== 'background'): ?>
+                            <img src="<?php echo esc_url($service['image']); ?>" alt="<?php echo esc_attr($service['title']); ?>" class="service-image" />
+                        <?php endif; ?>
+                        <h3><?php echo esc_html($service['title']); ?></h3>
+                        <p><?php echo esc_html($service['description']); ?></p>
+                    </div>
+                </div>
+            <?php endforeach;
         endif;
         ?>
     </div>
@@ -208,19 +330,35 @@ get_header(); ?>
 
     <div class="image-gallery">
         <?php
-        $portfolio_images = get_field('portfolio_images');
-        if( $portfolio_images && is_array($portfolio_images) ):
-            foreach( $portfolio_images as $image_item ):
-                if( isset($image_item['image']) ):
-                    ?>
-                    <div class="gallery-image">
-                        <img src="<?php echo esc_url($image_item['image']['url']); ?>" alt="<?php echo esc_attr($image_item['image']['alt'] ?: 'Portfolio Image'); ?>" />
-                    </div>
-                <?php endif;
-            endforeach;
+        // Get individual portfolio images (ACF Free)
+        $portfolio_images = array();
+        for($i = 1; $i <= 12; $i++) {
+            $image = get_field('portfolio_image_' . $i);
+            if($image) {
+                $portfolio_images[] = $image;
+            }
+        }
+
+        if( !empty($portfolio_images) ):
+            foreach( $portfolio_images as $image ):
+                ?>
+                <div class="gallery-image">
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: 'Portfolio Image'); ?>" />
+                </div>
+            <?php endforeach;
         else:
             // Default portfolio images
-            echo '<!-- Add portfolio images via ACF in WordPress admin -->';
+            $default_portfolio = array(
+                'image2.png', 'image3.png', 'image4.png',
+                'image5.png', 'image6.png', 'image7.png',
+                'DSC02356-scaled.jpg', 'Untitled.png'
+            );
+            foreach($default_portfolio as $img):
+                ?>
+                <div class="gallery-image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $img; ?>" alt="Portfolio Image" />
+                </div>
+            <?php endforeach;
         endif;
         ?>
     </div>
