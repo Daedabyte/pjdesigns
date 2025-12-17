@@ -53,7 +53,6 @@
             echo '<li><a href="#about">About</a></li>';
             echo '<li><a href="#services">Services</a></li>';
             echo '<li><a href="#portfolio">Portfolio</a></li>';
-            echo '<li><a href="#booking">Book Now</a></li>';
             echo '<li><a href="#contact">Contact</a></li>';
             echo '<li class="mobile-logo">';
             echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="logo">';

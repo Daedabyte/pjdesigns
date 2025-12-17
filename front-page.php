@@ -401,6 +401,23 @@ get_header(); ?>
 
 <!-- Contact Section -->
 <section class="contact" id="contact">
+    <!-- Wave Divider -->
+      <div class="section-divider">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path
+            d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#5baec7"
+            opacity="0.2"
+            class="wave-animation-right"
+          />
+          <path
+            d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#5baec7"
+            opacity="0.3"
+            class="wave-animation-left"
+          />
+        </svg>
+      </div>
     <h2 class="section-title"><?php echo esc_html( get_field('contact_title') ?: 'Get In Touch' ); ?></h2>
 
     <div class="contact-content">
