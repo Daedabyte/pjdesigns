@@ -776,52 +776,11 @@ acf_add_local_field_group(array(
 ));
 
 /**
- * 7. Booking Section Fields
- */
-acf_add_local_field_group(array(
-    'key' => 'group_booking_section',
-    'title' => '7. Schedule a Consultation Section',
-    'fields' => array(
-        array(
-            'key' => 'field_booking_title',
-            'label' => 'Section Title',
-            'name' => 'booking_title',
-            'type' => 'text',
-            'default_value' => 'Schedule a Consultation',
-        ),
-        array(
-            'key' => 'field_booking_intro',
-            'label' => 'Introduction Text',
-            'name' => 'booking_intro',
-            'type' => 'textarea',
-        ),
-        array(
-            'key' => 'field_calendly_url',
-            'label' => 'Calendly URL',
-            'name' => 'calendly_url',
-            'type' => 'url',
-            'instructions' => 'Enter your Calendly scheduling page URL',
-        ),
-    ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'default',
-            ),
-        ),
-    ),
-    'menu_order' => 6,
-    'position' => 'normal',
-));
-
-/**
- * 8. Contact Section Fields
+ * 7. Contact Section Fields
  */
 acf_add_local_field_group(array(
     'key' => 'group_contact_section',
-    'title' => '8. Contact Section',
+    'title' => '7. Contact Section',
     'fields' => array(
         array(
             'key' => 'field_contact_title',
@@ -897,7 +856,7 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
-    'menu_order' => 7,
+    'menu_order' => 6,
     'position' => 'normal',
 ));
 

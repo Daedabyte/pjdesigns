@@ -399,45 +399,6 @@ get_header(); ?>
     <img class="lightbox-content" id="lightbox-img" alt="Gallery Image" />
 </div>
 
-<!-- Calendly Booking Section -->
-<section class="calendly" id="booking">
-    <div class="section-divider">
-        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.2" class="wave-animation-right" />
-            <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.3" class="wave-animation-left" />
-        </svg>
-    </div>
-
-    <h2 class="section-title"><?php echo esc_html( get_field('booking_title') ?: 'Schedule a Consultation' ); ?></h2>
-
-    <div class="calendly-container">
-        <div class="calendly-intro fade-in">
-            <p>
-                <?php echo esc_html( get_field('booking_intro') ?: 'Ready to transform your space? Book a consultation with PJ Designs. We\'ll discuss your vision, explore design possibilities, and create a plan tailored to your unique style and needs.' ); ?>
-            </p>
-        </div>
-
-        <div class="calendly-widget fade-in">
-            <?php
-            $calendly_url = get_field('calendly_url');
-            if( $calendly_url ): ?>
-                <!-- Calendly inline widget -->
-                <div class="calendly-inline-widget" data-url="<?php echo esc_url($calendly_url); ?>" style="min-width:320px;height:630px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            <?php else: ?>
-                <div id="calendly-embed-container">
-                    <p style="color: var(--text-light); padding: 3rem">
-                        Calendly booking widget will be integrated here.<br /><br />
-                        <strong>To complete the integration:</strong><br />
-                        1. Add your Calendly URL in the WordPress admin under "Booking Section" ACF fields<br />
-                        2. The Calendly widget will automatically appear here
-                    </p>
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-</section>
-
 <!-- Contact Section -->
 <section class="contact" id="contact">
     <h2 class="section-title"><?php echo esc_html( get_field('contact_title') ?: 'Get In Touch' ); ?></h2>
