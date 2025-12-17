@@ -472,21 +472,32 @@ get_header(); ?>
             </div>
         </div>
 
-        <form class="contact-form fade-in" id="contactForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required />
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+        <div class="contact-form fade-in">
+            <?php
+            $contact_form_shortcode = get_field('contact_form_shortcode');
+            if( $contact_form_shortcode ):
+                // Display Contact Form 7 if shortcode is provided
+                echo do_shortcode( $contact_form_shortcode );
+            else:
+                // Default static form (for visual reference)
+                ?>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            <?php endif; ?>
+        </div>
     </div>
 </section>
 

@@ -846,6 +846,14 @@ acf_add_local_field_group(array(
             'name' => 'contact_location',
             'type' => 'text',
         ),
+        array(
+            'key' => 'field_contact_form_shortcode',
+            'label' => 'Contact Form 7 Shortcode',
+            'name' => 'contact_form_shortcode',
+            'type' => 'text',
+            'instructions' => 'Paste your Contact Form 7 shortcode here (e.g., [contact-form-7 id="123" title="Contact form"]). Leave empty to show default form.',
+            'placeholder' => '[contact-form-7 id="123"]',
+        ),
     ),
     'location' => array(
         array(
