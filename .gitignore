@@ -1,1 +1,18 @@
-pjdesigns-theme.zip
+# WordPress theme ZIP files
+*.zip
+
+# WordPress core files (if present)
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup*/
+wp-content/upgrade/
+
+# Large backup files
+*.sql
+*.tar.gz
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
