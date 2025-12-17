@@ -49,7 +49,7 @@ get_header(); ?>
 <section class="brands" id="brands">
     <div class="section-divider">
         <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.2" class="wave-animation-right" />
+            <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.2" class="wave-animation-right" />
             <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#5baec7" opacity="0.3" class="wave-animation-left" />
         </svg>
     </div>
@@ -99,27 +99,51 @@ get_header(); ?>
                 ?>
                 <div class="carousel-slide active">
                     <div class="brand-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hunter_Douglas_Logo.svg/2560px-Hunter_Douglas_Logo.svg.png" alt="Hunter Douglas" />
+                    </div>
+                    <div class="brand-tagline">Shutters & Shades</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/Hartmann&Forbes.png" alt="Hartmann & Forbes" />
+                    </div>
+                    <div class="brand-tagline">Shades</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
+                        <img src="https://www.scalamandre.com/media/wysiwyg/About/scalamandre-logo-scalamandre.png" alt="Scalamandré" />
+                    </div>
+                    <div class="brand-tagline">Fabrics & Wallpaper</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/fabricut.png" alt="Fabricut" />
                     </div>
-                    <div class="brand-tagline">Premium Fabrics & Textiles</div>
+                    <div class="brand-tagline">Fabrics & Wallpaper</div>
                 </div>
                 <div class="carousel-slide">
                     <div class="brand-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/sharris.png" alt="Samuel & Sons" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/sharris.png" alt="S. Harris" />
                     </div>
-                    <div class="brand-tagline">Luxury Trimmings & Passementerie</div>
+                    <div class="brand-tagline">Fabrics & Trims</div>
                 </div>
                 <div class="carousel-slide">
                     <div class="brand-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/curry-logo.jpg" alt="Curry & Company" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/ogImage.png" alt="Miles Talbott" />
                     </div>
-                    <div class="brand-tagline">Designer Lighting & Mirrors</div>
+                    <div class="brand-tagline">Furniture</div>
                 </div>
                 <div class="carousel-slide">
                     <div class="brand-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/Hartmann&Forbes.png" alt="Hartmann&Forbes" />
+                        <img src="https://www.designleadershipnetwork.org/wp-content/uploads/2023/01/VCC_Logo_Horizontal_Black_FINAL-1.png" alt="Visual Comfort" />
                     </div>
-                    <div class="brand-tagline">Natural Window Coverings</div>
+                    <div class="brand-tagline">Lighting</div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="brand-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/curry-logo.jpg" alt="Curry & Co." />
+                    </div>
+                    <div class="brand-tagline">Lighting</div>
                 </div>
             <?php endif; ?>
         </div>
@@ -138,6 +162,10 @@ get_header(); ?>
                 <span class="dot" data-slide="1"></span>
                 <span class="dot" data-slide="2"></span>
                 <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <span class="dot" data-slide="6"></span>
+                <span class="dot" data-slide="7"></span>
             </div>
         <?php endif; ?>
     </div>
@@ -257,40 +285,40 @@ get_header(); ?>
             // Default services with theme images
             $default_services = array(
                 array(
-                    'title' => 'Window Treatments',
-                    'description' => 'Custom drapes, blinds, shades, and shutters tailored to your space',
-                    'image' => get_template_directory_uri() . '/images/blinds.jpg',
-                    'card_type' => 'background'
-                ),
-                array(
-                    'title' => 'Interior Design',
-                    'description' => 'Full-service design consultation for residential and commercial spaces',
-                    'image' => get_template_directory_uri() . '/images/furniture.jpg',
+                    'title' => 'Upholstery, Fabrics & Wallpaper',
+                    'description' => 'As our many clients know, we have always offered detailed, custom and customizable upholstery with local pick up/delivery service. We offer you a wide selection of upholstery fabrics from many companies including United Fabrics, Pindler, Fabricut, S Harris, Stroheim, Cowtan & Tout, Thibaut, and many others. PJ Designs also offers a wide variety of wallpaper choice and installation.',
+                    'image' => get_template_directory_uri() . '/images/upolstry.jpg',
                     'bg_color' => 'primary'
                 ),
                 array(
-                    'title' => 'Custom Furniture',
-                    'description' => 'Bespoke furniture pieces designed to match your aesthetic',
-                    'image' => get_template_directory_uri() . '/images/upolstry.jpg',
+                    'title' => 'Window Treatments',
+                    'description' => 'Both \'hard\' and \'soft\' window treatments have always been a specialty with PJ Designs. Looking for hard treatments such as blinds, shades and shutters? We feature our over 20-year relationship with Hunter Douglas. We also offer shades by Hartmann & Forbes and Conran. If it\'s soft, fabric window treatments you\'re considering, we make beautiful draperies and Roman shades as well as \'top\' treatments like cornices and valances. At your convenience, we will arrange an in-home consultation or a meeting at our location where we will help guide you with your design goals.',
+                    'image' => get_template_directory_uri() . '/images/window-blinds.jpg',
+                    'card_type' => 'background'
+                ),
+                array(
+                    'title' => 'Furniture & Furnishings',
+                    'description' => 'PJ Designs has always led with quality made-in-America furniture. Together we can locate best design and fabric furnishings for your home. Some of those brands are Michael Thomas, Gat Creek, Charleston Forge, and Hickory Chair. Also, if you are looking for it, many brands and styles can be customized to suit your needs.',
+                    'image' => get_template_directory_uri() . '/images/furniture.jpg',
+                    'card_type' => 'background'
+                ),
+                array(
+                    'title' => 'Carpets, Rugs & Accessories',
+                    'description' => 'Whether you are looking for carpet or area rugs, in formal or informal stylings, we maintain accounts with leading manufacturers offering selection for most uses.',
+                    'image' => get_template_directory_uri() . '/images/carpets.jpg',
                     'bg_color' => 'accent'
                 ),
                 array(
-                    'title' => 'Lighting Design',
-                    'description' => 'Elegant lighting solutions to illuminate your interiors',
+                    'title' => 'Lighting',
+                    'description' => 'We feature Carol Carver made-in-Massachusetts mirrors and lighting from Currey & Co. and Visual Comfort.',
                     'image' => get_template_directory_uri() . '/images/ligihting-image.png',
                     'bg_color' => 'primary'
                 ),
                 array(
-                    'title' => 'Paint & Wallpaper',
-                    'description' => 'Expert color consultation and wallpaper installation',
-                    'image' => get_template_directory_uri() . '/images/paint-painting.jpg',
-                    'bg_color' => 'accent'
-                ),
-                array(
-                    'title' => 'Home Accessories',
-                    'description' => 'Curated selection of decorative accessories and accents',
-                    'image' => get_template_directory_uri() . '/images/accesories.jpg',
-                    'bg_color' => 'primary'
+                    'title' => 'Paint & Color Consultation',
+                    'description' => 'A tried-and-true design tip – painting a room the right color for your furnishings and natural light can so often do more to get you the look you have been striving for! It\'s true and we like to work with our clients to do just that. Call us for an in-home consultation.',
+                    'image' => get_template_directory_uri() . '/images/painting-colors.jpg',
+                    'card_type' => 'background'
                 ),
             );
 
@@ -321,8 +349,8 @@ get_header(); ?>
 <section id="portfolio">
     <div class="section-divider">
         <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.2" class="wave-animation-right" />
-            <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#f9ad4a" opacity="0.3" class="wave-animation-left" />
+            <path d="M0,50 Q300,0 600,50 T1200,50 L1200,0 L0,0 Z" fill="#8b021b" opacity="0.2" class="wave-animation-right" />
+            <path d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z" fill="#65a99b" opacity="0.3" class="wave-animation-left" />
         </svg>
     </div>
 
@@ -350,8 +378,9 @@ get_header(); ?>
             // Default portfolio images
             $default_portfolio = array(
                 'image2.png', 'image3.png', 'image4.png',
-                'image5.png', 'image6.png', 'image7.png',
-                'DSC02356-scaled.jpg', 'Untitled.png'
+                'furniture.jpg', 'image5.png', 'blinds.jpg',
+                'image6.png', 'ligihting-image.png', 'image7.png',
+                'paint-painting.jpg'
             );
             foreach($default_portfolio as $img):
                 ?>
@@ -415,7 +444,7 @@ get_header(); ?>
 
     <div class="contact-content">
         <div class="contact-info fade-in">
-            <h3><?php echo esc_html( get_field('contact_heading') ?: 'Let\'s Create Something Amazing' ); ?></h3>
+            <h3><?php echo esc_html( get_field('contact_heading') ?: 'Schedule a Consultation' ); ?></h3>
             <p>
                 <?php echo esc_html( get_field('contact_intro') ?: 'Ready to start your next project? We\'d love to hear from you. Get in touch and let\'s discuss how we can bring your vision to life.' ); ?>
             </p>
@@ -428,31 +457,31 @@ get_header(); ?>
                     </div>
                 <?php endif; ?>
 
-                <?php if( get_field('contact_phone_1') ): ?>
+                <?php if( get_field('contact_phone_1') || get_field('contact_phone_2') ): ?>
                     <div class="contact-item">
                         <i class="fa-solid fa-phone"></i>
-                        <span>
-                            <?php echo esc_html( get_field('contact_phone_1') ); ?>
-                            <?php if( get_field('contact_phone_1_tagline') ): ?>
-                                <em style="font-style: italic; color: var(--text-light); font-size: 0.9em;">
-                                    <?php echo esc_html( get_field('contact_phone_1_tagline') ); ?>
-                                </em>
+                        <div>
+                            <?php if( get_field('contact_phone_1') ): ?>
+                                <div>
+                                    <?php echo esc_html( get_field('contact_phone_1') ); ?>
+                                    <?php if( get_field('contact_phone_1_tagline') ): ?>
+                                        <span style="font-style: italic; font-size: 0.9em; color: var(--text-light); margin-top: 0.25rem;">
+                                            <?php echo esc_html( get_field('contact_phone_1_tagline') ); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
                             <?php endif; ?>
-                        </span>
-                    </div>
-                <?php endif; ?>
-
-                <?php if( get_field('contact_phone_2') ): ?>
-                    <div class="contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>
-                            <?php echo esc_html( get_field('contact_phone_2') ); ?>
-                            <?php if( get_field('contact_phone_2_tagline') ): ?>
-                                <em style="font-style: italic; color: var(--text-light); font-size: 0.9em;">
-                                    <?php echo esc_html( get_field('contact_phone_2_tagline') ); ?>
-                                </em>
+                            <?php if( get_field('contact_phone_2') ): ?>
+                                <div>
+                                    <?php echo esc_html( get_field('contact_phone_2') ); ?>
+                                    <?php if( get_field('contact_phone_2_tagline') ): ?>
+                                        <span style="font-style: italic; font-size: 0.9em; color: var(--text-light); margin-top: 0.25rem;">
+                                            <?php echo esc_html( get_field('contact_phone_2_tagline') ); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
                             <?php endif; ?>
-                        </span>
+                        </div>
                     </div>
                 <?php endif; ?>
 
